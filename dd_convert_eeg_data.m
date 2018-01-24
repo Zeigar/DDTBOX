@@ -239,7 +239,12 @@ else % If data type not correctly specified
     
 end % of if strcmp data_type
 
-if ~strcmp(timepoints, 'All') % If user has selected custom time range
+if strcmp(timepoints, 'All') % If all time points within the epoch were included
+    
+    epoch_start_index = 1;
+    epoch_end_index = size(epoched_data, 2);
+    
+else % If user has selected custom time range
     
     % Trim to specified epoch start/end timepoints
     % Find epoch start and end samples (closest timepoints to selected epoch
